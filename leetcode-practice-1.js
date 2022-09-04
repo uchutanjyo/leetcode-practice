@@ -70,3 +70,24 @@ function defang(ip) {
 }
 
 defang('11.11.1.1.1.1.1.1')
+
+var finalValueAfterOperations = function (operations) {
+    let x = 0;
+    for (let i = 0; i < operations.length; i++) {
+        if (operations[i] === "--X") {
+            x--;
+        } else if (operations[i] === "X--") {
+            x--;
+        } else if (operations[i] === "++X") {
+            x++;
+        } else if (operations[i] === "X++") {
+            x++;
+        } else {
+            return undefined;
+        }
+    }
+    console.log(x)
+    return x;
+};
+
+finalValueAfterOperations(["--X", "X++", "--X", "X++", "++X"])
