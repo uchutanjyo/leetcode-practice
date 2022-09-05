@@ -91,3 +91,54 @@ var finalValueAfterOperations = function (operations) {
 };
 
 finalValueAfterOperations(["--X", "X++", "--X", "X++", "++X"])
+
+
+// single setnence problem
+
+const array1 = ["go over there", "no do it right now", "go there now please do it", "you dont want to why not yo", " hey man why dont you want to do"]
+
+var mostWordsFound = function (sentences) {
+    let spacesArray = [];
+    let counter = 0;
+    let maximumWords;
+    for (let i = 0; i < sentences.length; i++) {
+        for (let j = 0; j < sentences[i].length; j++) {
+            if (sentences[i][j] === ' ' && sentences[i][j - 1] && sentences[i][j + 1]) {
+                counter++
+            }
+        }
+        spacesArray.push(counter + 1)
+        counter = 0;
+    }
+    maximumWords = spacesArray[0]
+    for (let i = 0; i < spacesArray.length; i++) {
+        if (maximumWords < spacesArray[i]) {
+            maximumWords = spacesArray[i];
+        }
+    }
+    console.log(maximumWords)
+    return maximumWords;
+};
+
+
+mostWordsFound(array1)
+
+
+// String command problem
+
+const command = "G()()()()(al)G(al)()"
+
+var interpret = function (command) {
+    let newCommand = command
+    for (let i = 0; i < command.length; i++) {
+        if (newCommand[i] === "(" && newCommand[i + 1] === ")") {
+            newCommand = [newCommand.slice(0, i), 'o', newCommand.slice(i + 2)].join('');
+        } else if (newCommand[i] === "(" && newCommand[i + 1] === "a") {
+            newCommand = [newCommand.slice(0, i), 'al', newCommand.slice(i + 4)].join('');
+        }
+    }
+    console.log(newCommand)
+    return newCommand
+};
+
+interpret(command)
