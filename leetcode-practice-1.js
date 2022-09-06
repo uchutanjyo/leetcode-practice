@@ -142,3 +142,39 @@ var interpret = function (command) {
 };
 
 interpret(command)
+
+// Length of last word problem
+
+var lengthOfLastWord = function (s) {
+    let spacesArr = []
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] === ' ' && s[i + 1] && s[i + 1] !== ' ') {
+            spacesArr.push(i)
+        }
+    }
+    let lastSpace = spacesArr[spacesArr.length - 1]
+    let lastWord = s.slice(lastSpace + 1).trim()
+    console.log(lastWord.length)
+    return lastWord.length
+};
+
+lengthOfLastWord("   fly me   to   the moonnnn ok   ")
+
+// remove element problem
+
+var removeElement = function (nums, val) {
+    let numsLength = nums.length
+    let num = numsLength
+    for (let i = 0; i < numsLength; i++) {
+        if (nums[i] !== val) {
+            console.log(nums[i])
+            nums.push(nums[i])
+        } else {
+            num--
+        }
+    }
+    nums.reverse()
+    return num
+};
+
+removeElement([3, 4, 5, 6, 6, 8, 9, 15], 6)
