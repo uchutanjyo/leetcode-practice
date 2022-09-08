@@ -158,7 +158,7 @@ var lengthOfLastWord = function (s) {
     return lastWord.length
 };
 
-lengthOfLastWord("   fly me   to   the moonnnn ok   ")
+lengthOfLastWord("   fly me   to   the moonnnn ok ")
 
 // remove element problem
 
@@ -196,7 +196,8 @@ var sortSentence = function (s) {
             currentIndex = i + 1
         }
     }
+    console.log(originalSentenceArray.join(' '))
     return originalSentenceArray.join(' ')
 };
 
-sortSentence("Myself2 Me1 I4 and3")
+sortSentence("Cool4 Yuko1 So3 Is2")
