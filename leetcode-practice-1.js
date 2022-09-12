@@ -160,7 +160,7 @@ var lengthOfLastWord = function (s) {
 
 lengthOfLastWord("   fly me   to   the moonnnn ok ")
 
-// remove element problem
+// remove element problemm
 
 var removeElement = function (nums, val) {
     let numsLength = nums.length
