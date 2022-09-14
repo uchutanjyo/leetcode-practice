@@ -60,7 +60,12 @@ var longestCommonPrefix = function (strs) {
     if (strs.length === 1) return strs[0]
     let prefixArray = []
     let longestPrefix = ""
-    let longerPrefix
+    let longerPrefix = ""
+    if (!strs[0]) {
+        longestPrefix = ""
+        console.log(longestPrefix)
+        return longestPrefix
+    }
     prefixArray.push(strs[0])
     for (let i = 1; i < strs.length; i++) {
         if (strs[i] == "") {
@@ -70,54 +75,33 @@ var longestCommonPrefix = function (strs) {
         }
         prefixArray[i] = []
         for (let j = 0; j < strs[i].length; j++) {
-
             prefixArray[i] += strs[i][j]
-            console.log(prefixArray)
-            if (strs[i].charAt(j) !== prefixArray[0][j]) {
-                if (prefixArray[i].length === 1) {
+            if (strs[i][j] !== prefixArray[0][j]) {
+                if (strs[i].length === 1) {
                     longestPrefix = ""
                     console.log(longestPrefix)
                     return longestPrefix
                 }
-                console.log(longestPrefix)
-                return longestPrefix
-            } else {
-                longestPrefix = prefixArray[i]
+                break;
             }
-        }
-        console.log(prefixArray[i].length, longestPrefix.length)
-        if (prefixArray[i].length < strs[0].length) {
             longerPrefix = prefixArray[i]
         }
-    }
-    console.log(longerPrefix, longestPrefix)
-    if (longerPrefix) {
+        if (longerPrefix[0] !== prefixArray[i][0]) {
+            longestPrefix = ""
+            console.log(longestPrefix)
+            return longestPrefix
+        }
+        if (longerPrefix.length > prefixArray[i - 1].length) {
+            console.log(longerPrefix[0] === prefixArray[i][0])
+            longestPrefix = prefixArray[i - 1]
+        } else {
+            longestPrefix = longerPrefix
+        }
         console.log(longestPrefix)
-        longestPrefix = longerPrefix
+
     }
     console.log(longestPrefix)
-
-    console.log(prefixArray)
-
-
     return longestPrefix
 }
 
-longestCommonPrefix(["baab", "bacb", "b", "cbc"])
-
-// var longestCommonPrefix = function (strs) {
-//     let prefixArray = []
-//     let longestString;
-//     prefixArray.push(strs[0])
-//     for (let i = 1; i < strs.length; i++) {
-//         prefixArray[i] = []
-//         for (let j = 0; j < strs.length; j++) {
-//             if (strs[i].charAt(j) === prefixArray[0][j]) {
-//                 prefixArray[i] += strs[i][j]
-//                 longestString = prefixArray[i]
-//             }
-//         }
-//     }
-//     console.log(longestString)
-//     return longestString
-// }
+longestCommonPrefix(["aac","acab","aa","abba","aa"])
