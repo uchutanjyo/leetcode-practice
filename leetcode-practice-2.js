@@ -155,23 +155,29 @@ var isValid = function (s) {
         //     }
 
         // }
-    
+
     }
     console.log(totalBr % 1 === 0)
     if (totalBr % 1 === 0) {
         console.log('asassad', totalBr)
         return true
     } else {
-    return false
+        return false
     }
 }
 
-isValid("((((")
 
 
 
-var restoreString = function(s, indices) {
-    
+var restoreString = function (s, indices) {
+    let restoredString = []
+    for (let i = 0; i < s.length; i++) {
+        restoredString[indices[i]] = s[i]
+
+    }
+    return restoredString.toString().replaceAll(',', '');
 };
 
-restoreString('eggsmini', )
+restoreString('codeleet', [4, 5, 6, 7, 0, 2, 1, 3])
+
+restoreString('add', [0, 1, 2])
