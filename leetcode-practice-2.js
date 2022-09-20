@@ -86,16 +86,18 @@ var longestCommonPrefix = function (strs) {
             }
             longerPrefix = prefixArray[i]
         }
-        if (longerPrefix[0] !== prefixArray[i][0]) {
-            longestPrefix = ""
-            console.log(longestPrefix)
-            return longestPrefix
-        }
-        if (longerPrefix.length > prefixArray[i - 1].length) {
-            console.log(longerPrefix[0] === prefixArray[i][0])
-            longestPrefix = prefixArray[i - 1]
-        } else {
-            longestPrefix = longerPrefix
+        for (let k = 0; k < longerPrefix.length; k++) {
+            if (longerPrefix[k] !== prefixArray[i][k]) {
+                longestPrefix = ""
+                console.log(longestPrefix)
+                return longestPrefix
+            }
+            if (longerPrefix.length > prefixArray[i - 1].length) {
+                console.log(longerPrefix[k] === prefixArray[i][k])
+                longestPrefix = prefixArray[i - 1]
+            } else {
+                longestPrefix = longerPrefix
+            }
         }
         console.log(longestPrefix)
 
@@ -104,4 +106,72 @@ var longestCommonPrefix = function (strs) {
     return longestPrefix
 }
 
-longestCommonPrefix(["aac","acab","aa","abba","aa"])
+// longestCommonPrefix(["aac","acab","aa","abba","aa"])
+
+// valid string
+
+var isValid = function (s) {
+    // let totalSq = 0
+    let totalBr = 0
+    // let totalBr = 0
+    for (let i = 0; i < s.length; i++) {
+        if (s.length === 1) {
+            return false
+        }
+        console.log(s[i])
+        if (s[i] === "{" || s[i] === "}" ||
+            s[i] === "(" || s[i] === ")" ||
+            s[i] === "[" || s[i] === "]") {
+            totalBr += 0.5
+        }
+        // if (s[i] === "[" || s[i] === "]") {
+        //     totalSq += 0.5
+        // }
+        // if (s[i] === "(" || s[i] === ")") {
+        //     totalPar += 0.5
+        // }
+
+        // if (i > 0 || i % 2 === 0) {
+        //     if (s[i] === "}") {
+        //         if (s[i - 1] === "{") {
+        //             break
+        //         } else {
+        //             return false
+        //         }
+        //     }
+        //     else if (s[i] === ")") {
+        //         if (s[i - 1] === "(") {
+        //             break
+        //         } else {
+        //             return false     
+        //         }
+        //     }
+        //     else if (s[i] === "]") {
+        //         if (s[i - 1] === "[") {
+        //             break
+        //         } else {
+        //             return false
+        //         }
+        //     }
+
+        // }
+    
+    }
+    console.log(totalBr % 1 === 0)
+    if (totalBr % 1 === 0) {
+        console.log('asassad', totalBr)
+        return true
+    } else {
+    return false
+    }
+}
+
+isValid("((((")
+
+
+
+var restoreString = function(s, indices) {
+    
+};
+
+restoreString('eggsmini', )
