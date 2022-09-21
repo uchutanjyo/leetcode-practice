@@ -173,7 +173,6 @@ var restoreString = function (s, indices) {
     let restoredString = []
     for (let i = 0; i < s.length; i++) {
         restoredString[indices[i]] = s[i]
-
     }
     return restoredString.toString().replaceAll(',', '');
 };
@@ -181,3 +180,25 @@ var restoreString = function (s, indices) {
 restoreString('codeleet', [4, 5, 6, 7, 0, 2, 1, 3])
 
 restoreString('add', [0, 1, 2])
+
+
+// decode message problem
+
+var balancedStringSplit = function (s) {
+    let answer = 0
+    let counter = 0;
+    for (let i = 0; i < s.length + 1; i++) {
+        if (s[i] == "L") {
+            counter++
+        } else {
+
+            counter--
+        }
+        if (counter === 0) {
+            answer++
+        }
+    }
+    return answer
+};
+
+balancedStringSplit('RLRLRRLL')
