@@ -216,11 +216,52 @@ var truncateSentence = function (s, k) {
         if (counter == k) {
             truncatedSentence = s.slice(0, i)
             return truncatedSentence
-        }
-         else if (counter == k - 1 && !s.slice(i).includes(" ")) {
+        } else if (counter == k - 1 && !s.slice(i).includes(" ")) {
             return s
         }
     }
 };
 
 truncateSentence('hi there im matt ok ok ok', 7)
+
+// everse words problem
+
+var reverseWords = function (s) {
+    let reversedWords = ""
+    let counter = 0;
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] == " " || !s[i + 1]) {
+            for (let j = i; j >= counter; j--) {
+
+                reversedWords += s[j]
+            }
+                counter = i
+                reversedWords += " "
+
+        }
+    }
+    let finalString=  reversedWords.trim()
+    finalString = finalString.replace(/ +(?= )/g,'');
+    return finalString
+};
+
+reverseWords("Yo Man Whats Going On")
+
+// If Panagagram problem
+var checkIfPangram = function(sentence) {
+  let letters = 'abcdefghijklmnopqrstuvwxyz'  
+  let counter = 26;
+  for (let i=0; i<sentence.length; i++) {
+    if (sentence.includes(letters[i])) {
+        counter--
+    }
+  }  
+  if (counter === 0) {
+    return true
+} else {
+
+    return false
+}
+};
+
+checkIfPangram("thequickbrownfojumpsoverthelazydog")
