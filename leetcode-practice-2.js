@@ -264,4 +264,4 @@ var checkIfPangram = function(sentence) {
 }
 };
 
-checkIfPangram("thequickbrownfojumpsoverthelazydog")
+checkIfPangram("thequickbrownfoumpsoverthelazydog")
