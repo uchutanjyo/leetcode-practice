@@ -235,87 +235,87 @@ var reverseWords = function (s) {
 
                 reversedWords += s[j]
             }
-                counter = i
-                reversedWords += " "
+            counter = i
+            reversedWords += " "
 
         }
     }
-    let finalString=  reversedWords.trim()
-    finalString = finalString.replace(/ +(?= )/g,'');
+    let finalString = reversedWords.trim()
+    finalString = finalString.replace(/ +(?= )/g, '');
     return finalString
 };
 
 reverseWords("Yo Man Whats Going On")
 
 // If Panagagram problem
-var checkIfPangram = function(sentence) {
-  let letters = 'abcdefghijklmnopqrstuvwxyz'  
-  let counter = 26;
-  for (let i=0; i<sentence.length; i++) {
-    if (sentence.includes(letters[i])) {
-        counter--
+var checkIfPangram = function (sentence) {
+    let letters = 'abcdefghijklmnopqrstuvwxyz'
+    let counter = 26;
+    for (let i = 0; i < sentence.length; i++) {
+        if (sentence.includes(letters[i])) {
+            counter--
+        }
     }
-  }  
-  if (counter === 0) {
-    return true
-} else {
+    if (counter === 0) {
+        return true
+    } else {
 
-    return false
-}
+        return false
+    }
 };
 
 checkIfPangram("thequickbrownfoumpsoverthelazydog")
 
 // 
 
-var getLucky = function(s, k) {
+/**
+ * @param {string} s
+ * @param {number} k
+ * @return {number}
+ */
+/**
+ * @param {string} s
+ * @param {number} k
+ * @return {number}
+ */
+var getLucky = function (s, k) {
+    const letters = 'abcdefghijklmnopqrstuvwxyz'
     let transformation = 0
-    const letters = 'abcdefghijklmnopqrstuvwxyz'  
     let digits;
-    for (let i=0; i<s.length; i++) {
-        for (let j=0; j<letters.length; j++)
-        if (letters[j] == s[i]) {
-            console.log(letters[j], j+1)
-            if ((j+1).length === 1) {
-            transformation += j+1
+    for (let i = 0; i < s.length; i++) {
+        for (let j = 0; j < letters.length; j++)
+            if (letters[j] == s[i]) {
+                if ((j + 1).length === 1) {
+                    transformation += j + 1
+                } else {
+                    digits = (j + 1).toString().split("")
+                    digits.forEach((digit) => {
+                        transformation += Number(digit)
+                    })
+                }
+            }
+    }
+    if (k === 1) {
+        return transformation
+    } else {
+        for (let h = k; h >= 1; h--) {
+            let nextTransformation = 0
+            transformation = transformation.toString().split("")
+            transformation.forEach((digit) => {
+            nextTransformation += Number(digit)
+            })
+            if (h - 2 === 0) {
+                return nextTransformation
+            } else if (nextTransformation.toString().length === 1) {
+                return nextTransformation
             } else {
-                digits = (j+1).toString().split("")
-                digits.forEach((digit) => {
-                    console.log(digit)
-                    transformation += Number(digit)
-                })
+                transformation = nextTransformation
             }
         }
-      
-    }
-    if (k===1) {
-        return transformation
-    }
- else {
-        for (let h = k; h>1; h--) {
-            let nextTransformation = 0
-        transformation = transformation.toString().split("")
-        console.log(transformation)
-        transformation.forEach((digit) => {
-            nextTransformation += Number(digit)
-            console.log(nextTransformation)
-
-        } )
- 
-           if (nextTransformation.toString().length == 1) {
-            console.log(nextTransformation)
-
-        return nextTransformation
-        }
-        else {
-            transformation = nextTransformation
-            console.log(transformation)
-        }
-        } 
 
     }
 };
 
-// getLucky("vbyytoijnbgtyrjlsc", 6)
+getLucky("qhquvppzooyt", 6)
 
-getLucky('qhquvppzooyt', 2)
+// getLucky('vbyytoijnbgtyrjlsc', 2)
