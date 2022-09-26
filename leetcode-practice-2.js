@@ -265,3 +265,57 @@ var checkIfPangram = function(sentence) {
 };
 
 checkIfPangram("thequickbrownfoumpsoverthelazydog")
+
+// 
+
+var getLucky = function(s, k) {
+    let transformation = 0
+    const letters = 'abcdefghijklmnopqrstuvwxyz'  
+    let digits;
+    for (let i=0; i<s.length; i++) {
+        for (let j=0; j<letters.length; j++)
+        if (letters[j] == s[i]) {
+            console.log(letters[j], j+1)
+            if ((j+1).length === 1) {
+            transformation += j+1
+            } else {
+                digits = (j+1).toString().split("")
+                digits.forEach((digit) => {
+                    console.log(digit)
+                    transformation += Number(digit)
+                })
+            }
+        }
+      
+    }
+    if (k===1) {
+        return transformation
+    }
+ else {
+        for (let h = k; h>1; h--) {
+            let nextTransformation = 0
+        transformation = transformation.toString().split("")
+        console.log(transformation)
+        transformation.forEach((digit) => {
+            nextTransformation += Number(digit)
+            console.log(nextTransformation)
+
+        } )
+ 
+           if (nextTransformation.toString().length == 1) {
+            console.log(nextTransformation)
+
+        return nextTransformation
+        }
+        else {
+            transformation = nextTransformation
+            console.log(transformation)
+        }
+        } 
+
+    }
+};
+
+// getLucky("vbyytoijnbgtyrjlsc", 6)
+
+getLucky('qhquvppzooyt', 2)
