@@ -8,7 +8,6 @@ var repeatedSubstringPattern = function(s) {
         substrings.push(s[i])
         if (s[i - 1] && s[i-1] !== s[i]) {
              substrings[i] += s[i+1]
-            console.log(substrings)
             // s.includes(substrings[i]) ? true : false
         }
         if (substrings[i] += substrings[i] === s) {
