@@ -1,29 +1,48 @@
-var repeatedSubstringPattern = function(s) {
-    let substrings = []
-    for (let i=0;i<s.length;i++) {
-        if (s.length % 2 !== 0) {
-            console.log('nope')
-            return false
-        }
-        substrings.push(s[i])
-        if (s[i - 1] && s[i-1] !== s[i]) {
-             substrings[i] += s[i+1]
-            // s.includes(substrings[i]) ? true : false
-        }
-        if (substrings[i] += substrings[i] === s) {
-            console.log(substrings)
-            return true
-        } else if (substrings[i] += substrings[i] === s) {
+var repeatedSubstringPattern = function(str) {
+    var result = false;
 
+    var sameCount = 1;
+    for (var i=1; i<str.length; i++) {
+        if (str[i] === str[0]) {
+            sameCount++;
         }
-
         else {
-            console.log('noo')
-            return false
+            break;
         }
     }
 
+    if (sameCount > 1 && sameCount === str.length) {
+        result = true;
+    }
+    else {
+        // Start the search at the 3rd letter (since we already covered cases for 1 and 2 characters above).
+        for (var i=2; i<=str.length / 2; i++) {
+            // The substring must be a divsor of the string length. This dramatically speeds up the search!
+            if (str.length % i === 0) {
+                // Get the substring.
+                var sub = str.substring(0, i);
+                skip = false;
     
+                // Check if the substring is found at each nth index in the string (divisor of the length).
+                for (var j=sub.length; j<=str.length - sub.length; j+=sub.length) {
+                    if (str.indexOf(sub, j) !== j) {
+                        // Found the substring, but not at the next divsior index.
+                        result = false;
+                        skip = true;
+                        break;
+                    }
+                }
+    
+                // If we got this far, and j reached the end of the string evenly, we have a match!
+                if (!skip && j === str.length) {
+                    result = true;
+                    break;
+                }
+            }
+        }
+    }
+
+    return result;
 };
 
 repeatedSubstringPattern('abccabcc')
