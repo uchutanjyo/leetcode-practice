@@ -45,6 +45,6 @@ var repeatedSubstringPattern = function(str) {
     return result;
 };
 
-repeatedSubstringPattern('abccabcc')
+repeatedSubstringPattern('')
 
         // if (s.includes(s[i])) {
