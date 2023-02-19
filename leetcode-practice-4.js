@@ -45,12 +45,31 @@ var sortPeople = function(names, heights) {
         objects.push(newObj)
     }
     const sortedObjs = objects.sort((a, b) => b.height-a.height);
-    console.log(sortedObjs)
+    // console.log(sortedObjs)
     const result =  sortedObjs.map(a => a.name);
-    console.log(result)
+    // console.log(result)
     // return sortedObjs
 
 };
 
 
 sortPeople(['Rod', 'Pog', 'Barg'], [100, 400, 300])
+
+
+// pseudo-solution: didn't need one. got this so quickly! yeah!
+
+
+var numJewelsInStones = function(jewels, stones) {
+    let numOfJewels = 0;
+    for (let i=0; i < stones.length; i++) {
+        for (let j=0; j < jewels.length; j++) {
+            if (stones[i] === jewels[j]) {
+                numOfJewels++
+            }
+    }
+}
+// console.log(numOfJewels)
+return numOfJewels
+};
+
+numJewelsInStones('aAo', 'aaAAoopp')
