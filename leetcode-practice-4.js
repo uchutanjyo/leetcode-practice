@@ -72,4 +72,4 @@ var numJewelsInStones = function(jewels, stones) {
 return numOfJewels
 };
 
-numJewelsInStones('aAo', 'aaAAoopp')
+numJewelsInStones('aAo', 'aaoopp')
