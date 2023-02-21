@@ -73,3 +73,66 @@ return numOfJewels
 };
 
 numJewelsInStones('aAo', 'aaoopp')
+
+
+// pseudo-solution: didn't need one. got this so quickly! yeah!
+
+var cellsInRange = function(s) {
+    
+};
+
+cellsInRange()
+
+
+
+
+
+var decodeMessage = function(key, message) {
+    const newMessage = []
+    let alphabet = 'abcdefghijklmnopqrstuvwxyz'
+
+const map = []
+
+    for (let i=0; i < key.length; i++) {
+        for (let j=0; j < alphabet.length; j++) {
+                                // console.log(alphabet[j])
+
+        if (key[i] == alphabet[j]) {
+            let k = alphabet[i]
+            let a = alphabet[j]
+            map[i] = {
+                real:  k,
+                sub: a
+            }
+
+        }
+
+
+        }
+           
+        alphabet =  alphabet.replace(alphabet[j], '')
+        console.log(alphabet)
+
+    }
+    for (let k=0; k < message.length; k++) {
+        for (let l=0; l < map.length; l++) {
+            console.log(map)
+        if (message[k] == ' ') {
+            newMessage[k] =  ' '
+            // console.log(newMessage)
+        }
+        else if (message[k] == map[l].sub) {
+            // console.log( map[l].real)
+            newMessage[k] =  map[l].real
+            // console.log(newMessage)
+
+            // console.log(message)
+        }
+    }
+
+        }
+        console.log(newMessage.join(''))
+        return newMessage.join('')
+};
+
+decodeMessage("the quick brown fox jumps over the lazy dog", "vkbs bs t suepuv")
